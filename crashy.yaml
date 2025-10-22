@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: crashy
+  labels:
+    autopilot: "true"
+spec:
+  containers:
+  - name: crash
+    image: busybox
+    command: ["sh", "-c", "echo 'Starting crashy pod'; sleep 3; exit 1"]
+  restartPolicy: Always

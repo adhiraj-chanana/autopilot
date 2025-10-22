@@ -1,0 +1,11 @@
+apiVersion: autopilot.io/v1
+kind: HealingPolicy
+metadata:
+  name: default-policy
+  namespace: default
+spec:
+  maxRetries: 3
+  cooldownSeconds: 15
+  ignoreReasons:
+    - OOMKilled
+    - Evicted
