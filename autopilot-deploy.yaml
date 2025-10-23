@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: autopilot-operator
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: autopilot-operator
+  template:
+    metadata:
+      labels:
+        app: autopilot-operator
+    spec:
+      serviceAccountName: autopilot-operator-sa
+      containers:
+      - name: autopilot-operator
+        image: autopilot-operator:latest
+        imagePullPolicy: Never
